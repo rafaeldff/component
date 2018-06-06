@@ -62,7 +62,7 @@
                       {:reason ::missing-component
                        :system-key key
                        :system system})))
-    component))
+    (vary-meta component assoc ::system-key key)))
 
 (defn- get-dependency [system system-key component dependency-key]
   (let [dependency (get system system-key ::not-found)]

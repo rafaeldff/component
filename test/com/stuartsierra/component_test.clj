@@ -304,3 +304,7 @@
     (is (= local-key (:dependency-key data)))
     (is (= a (:component data)))
     (is (= system (:system data)))))
+
+(deftest system-key-metadata-added-in-update-system
+  (let [system-metadata (component/update-system s (keys s) meta)]
+    (is (= :a (::component/system-key (:a system-metadata))))))
